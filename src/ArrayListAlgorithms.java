@@ -143,5 +143,139 @@ public class ArrayListAlgorithms
      */
     public static void wackyVowels(ArrayList<String> wordList)
     { /* implement this method! */
+        String l = "";
+        boolean letters = false;
+        for (int i = 0; i < wordList.size(); i++) {
+            l = wordList.get(i);
+            letters = false;
+            for (int b = 0; b < l.length(); b++) {
+                if (l.substring(b, b + 1).equals("a") || l.substring(b, b + 1).equals("e") || l.substring(b, b + 1).equals("i") || l.substring(b, b + 1).equals("o")) {
+                    letters = true;
+                }
+            }
+            if (letters) {
+                wordList.remove(i);
+                i--;
+            }
+        }
+        for (int i = 0; i < wordList.size(); i++) {
+            wordList.add(i, wordList.get(i));
+            i++;
+        }
+    }
+
+    /** Removes all duplicate values from an intList, leaving only the first
+     *  occurrence in the arrayList; for example, this method will modify
+     *  [1, 2, 5, 4, 2, 2, 1, 6, 4, 4, 8, 1, 7, 4, 2] --> [1, 2, 5, 4, 6, 8, 7]
+     *
+     *  DOES mutate (modify) elements in intList
+     *  PRECONDITION: intList.size() > 0
+     *
+     *  @param intList  intList of Integers
+     */
+    public static void removeDuplicates(ArrayList<Integer> intList)
+    { /* implement this method! */
+        int length = 0;
+        boolean num = false;
+    for(int i = 1; i < intList.size(); i++) {
+        num = false;
+        length = i;
+        for(int b = 0; b < length; b++) {
+            if(intList.get(i) == intList.get(b)) {
+                num = true;
+            }
+        }
+        if(num) {
+            intList.remove(i);
+            i--;
+        }
+    }
+    }
+
+    /** Adds an uppercase version of each string directly AFTER the string
+     *  in wordList; for example, if wordList is ["hello", "my", "best", "friend"]
+     *  this this method modifies wordList to be:
+     *  ["hello", "HELLO", "my", "MY", "best", "BEST", "friend", "FRIEND"]
+     *
+     *  Assume all words have lowercase letters originally
+     *
+     *  DOES mutate (modify) elements in wordList
+     *  PRECONDITION: wordList.size() > 0
+     *
+     *  @param wordList  arraylist of Strings
+     */
+    public static void duplicateUpperAfter(ArrayList<String> wordList)
+    { /* implement this method! */
+    for(int i = 0; i < wordList.size(); i++) {
+        wordList.add(i + 1, wordList.get(i).toUpperCase());
+        i++;
+    }
+    }
+
+    /** Appends an uppercase version of each string to the END of of wordList;
+     *  the uppercase versions appear in the same order as the lowercase versions
+     *  for example, if wordList is ["hello", "my", "best", "friend"]
+     *  this this method modifies wordList to be:
+     *  ["hello", "my", "best", "friend", "HELLO", "MY", "BEST", "FRIEND"]
+     *
+     *  Assume all words have lowercase letters originally
+     *
+     *  DOES mutate (modify) elements in wordList
+     *  PRECONDITION: wordList.size() > 0
+     *
+     *  @param wordList  arraylist of Strings
+     */
+    public static void duplicateUpperEnd(ArrayList<String> wordList)
+    { /* implement this method! */
+    int length = wordList.size();
+    for(int i = 0; i < length; i++) {
+        wordList.add(length + i, wordList.get(i).toUpperCase());
+    }
+    }
+
+    /** Returns an arraylist of Strings that represents the input sentence parsed
+     *  into separate words (using a space: " " as the delimiter) and REVERSED
+     *  For example, if sentence = "This is my sentence!"
+     *  this method return [sentence!, my, is, This]
+     *
+     *  PRECONDITION: sentence does not end with a space
+     *
+     *  @param sentence  the input String that represents one or more words
+    separated by spaces
+     *  @return  new arraylist of Strings containing the words of sentence reversed
+     */
+    public static ArrayList<String> parseWordsAndReverse(String sentence)
+    { /* implement this method! */
+        ArrayList<String> wordList =  new ArrayList<String>();
+        int index = 0;
+        String add = "";
+        String sent = sentence;
+        while(sent.indexOf(" ") != -1) {
+        index = sent.indexOf(" ");
+        add = sent.substring(0, index);
+        wordList.add(0, add);
+        sent = sent.substring(index + 1);
+    }
+        wordList.add(0, sent);
+        return wordList;
+    }
+
+    /** Removes all words from wordList that begin with "b" and inserts them at the
+     *  front of wordList; all "b" words that are moved should appear in the same order
+     *  in the modified arrayList as they did before being moved
+     *
+     *  For example, this method will take a wordList:
+     *  ["apple", "banana", "cherry", "donut", "bagel", "danish", "berry", "baguette", "soda"]
+     *  and modify it to
+     *  ["banana", "bagel", "berry", "baguette", "apple", "cherry", "donut", "danish", "soda"]
+     *
+     *  DOES mutate (modify) elements in wordList
+     *  PRECONDITIONS: wordList.size() > 0, all strings in wordList have at least one character
+     *
+     *  @param wordList  arraylist of words
+     */
+    public static void moveBWords(ArrayList<String> wordList)
+    { /* implement this method! */
+    
     }
 }

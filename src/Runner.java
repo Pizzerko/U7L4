@@ -2,15 +2,17 @@ import java.util.*;
 public class Runner
 {
     public static void main(String[] args) {
-        ArrayList<Integer> intList11 = new ArrayList<Integer>(Arrays.asList(1, 2, 3, 4, 5, 6, 7));
-        ArrayListAlgorithms.removeOdds(intList11);
-        System.out.println(intList11);
-        ArrayList<Integer> intList12 = new ArrayList<Integer>(Arrays.asList(2, 4, 6, 8, 10));
-        ArrayListAlgorithms.removeOdds(intList12);
-        System.out.println(intList12);
-        ArrayList<Integer> intList13 = new ArrayList<Integer>(Arrays.asList(1, 3, 5, 7, 9));
-        ArrayListAlgorithms.removeOdds(intList13);
-        System.out.println(intList13);
+        String mySentence = "This is my sentence!";
+        ArrayList<String> reversedWords = ArrayListAlgorithms.parseWordsAndReverse(mySentence);
+        System.out.println(reversedWords);
+
+        String mySentence2 = "It is a lovely day outside today don't you think?";
+        ArrayList<String> reversedWords2 = ArrayListAlgorithms.parseWordsAndReverse(mySentence2);
+        System.out.println(reversedWords2);
+
+        String mySentence3 = "Hello";
+        ArrayList<String> reversedWords3 = ArrayListAlgorithms.parseWordsAndReverse(mySentence3);
+        System.out.println(reversedWords3);
 
     }
 
