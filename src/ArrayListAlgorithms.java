@@ -276,6 +276,6 @@ public class ArrayListAlgorithms
      */
     public static void moveBWords(ArrayList<String> wordList)
     { /* implement this method! */
-    
+
     }
 }
