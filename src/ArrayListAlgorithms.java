@@ -291,4 +291,52 @@ public class ArrayListAlgorithms {
         }
     }
 
+    /** Returns Arraylist of Integers that contain all mode(s) of the int array numList.
+     *  If elements in numList all appear exactly once, there is no mode, and this method
+     *  should return an empty list
+     *
+     *  For example, if numList is: [1, 2, 3, 2, 4, 5, 5, 6],
+     *  then numList contains two modes: 2, 5
+     *  and this method returns an arraylist containing 2 and 5 (in any order)
+     *  If numList is: [1, 2, 3, 2, 4, 5, 5, 6, 6, 7, 6],
+     *  then numList contains one mode: 6
+     *  and this method returns an arrayList containing 6
+     *  If numList is: [1, 2, 3, 4, 5, 6], then numList contains no mode
+     *  and this method returns an empty arrayList: []
+     *  If numList is: [2, 2, 2, 3, 3, 3, 4, 4, 4],
+     *  then numList contains three modes: 2, 3, 4
+     *  and this method returns an arrayList containing 2, 3, and 4 (in any order)
+     *
+     *  Does NOT mutate (modify) elements in numList
+     *  PRECONDITIONS: numList.length > 0
+     *
+     *  @param numList  numList of ints
+     */
+    public static ArrayList<Integer> modes(int[] numList)
+    { /* implement this method! */
+        int chosen = 0;
+        int occurence = 0;
+        int largest = 0;
+        ArrayList<Integer> mode = new ArrayList<Integer>();
+        mode.add(0, 0);
+    for(int i = 0; i < numList.length; i++) {
+        chosen = numList[i];
+        occurence = 0;
+        largest = 0;
+        for(int b = 0; b < numList.length; b++) {
+            if(chosen == numList[b]) {
+                occurence++;
+            }
+        }
+        if(largest < occurence) {
+            largest = chosen;
+            mode.set(0, chosen);
+        }
+        if(largest == occurence) {
+            mode.add(0, chosen);
+        }
+    }
+    return mode;
+    }
+
 }
